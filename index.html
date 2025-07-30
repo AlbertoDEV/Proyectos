@@ -139,20 +139,22 @@
             margin: 0 auto;
         }
 
-        .star {
+        .diamond {
             background-color: transparent !important;
             position: relative;
         }
 
-        .star:before {
-            content: "★";
-            font-size: 24px;
-            color: currentColor;
+        .diamond:before {
+            content: "";
             position: absolute;
-            top: -2px;
+            width: 16px;
+            height: 16px;
+            background-color: currentColor;
+            transform: rotate(45deg);
+            top: 4px;
             left: 0;
             right: 0;
-            text-align: center;
+            margin: 0 auto;
         }
 
         .blue { 
@@ -188,7 +190,7 @@
             <h1>Menú de proyectos de Alberto DEV</h1>
         </div>
         <div class="google-colors">
-            <div class="shape star yellow"></div>
+            <div class="shape diamond yellow"></div>
             <div class="shape triangle red"></div>
             <div class="shape square blue"></div>
             <div class="shape circle green"></div>
