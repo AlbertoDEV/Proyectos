@@ -101,12 +101,42 @@
             margin-bottom: 2rem;
         }
 
-        .color-dot {
+        .shape {
             width: 12px;
             height: 12px;
-            border-radius: 50%;
             margin: 0 5px;
             animation: pulse 1.5s infinite alternate;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+
+        .square {
+            /* Square already has the right shape */
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 12px solid #EA4335;
+            background-color: transparent !important;
+        }
+
+        .star {
+            background-color: transparent !important;
+            position: relative;
+        }
+
+        .star:before {
+            content: "★";
+            font-size: 14px;
+            color: #FBBC05;
+            position: absolute;
+            top: -1px;
+            left: -1px;
         }
 
         .blue { 
@@ -138,10 +168,10 @@
             <h1>Menú de proyectos de Alberto DEV</h1>
         </div>
         <div class="google-colors">
-            <div class="color-dot blue"></div>
-            <div class="color-dot red"></div>
-            <div class="color-dot yellow"></div>
-            <div class="color-dot green"></div>
+            <div class="shape star yellow"></div>
+            <div class="shape triangle red"></div>
+            <div class="shape square blue"></div>
+            <div class="shape circle green"></div>
         </div>
         <p>Seleccione una opción para continuar:</p>
         <a href="Online quiz generator\online-quiz-generator\index.html" class="btn">Ir al Generador de Cuestionarios</a>
