@@ -98,13 +98,17 @@
         .google-colors {
             display: flex;
             justify-content: center;
+            align-items: center;
             margin-bottom: 2rem;
         }
 
         .shape {
-            width: 12px;
-            height: 12px;
-            margin: 0 5px;
+            width: 24px;
+            height: 24px;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             animation: pulse 1.5s infinite alternate;
         }
 
@@ -117,12 +121,22 @@
         }
 
         .triangle {
+            position: relative;
+            background-color: transparent !important;
+        }
+
+        .triangle:before {
+            content: "";
+            position: absolute;
             width: 0;
             height: 0;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-bottom: 12px solid #EA4335;
-            background-color: transparent !important;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 20px solid currentColor;
+            top: 2px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
         }
 
         .star {
@@ -132,27 +146,33 @@
 
         .star:before {
             content: "★";
-            font-size: 14px;
-            color: #FBBC05;
+            font-size: 24px;
+            color: currentColor;
             position: absolute;
-            top: -1px;
-            left: -1px;
+            top: -2px;
+            left: 0;
+            right: 0;
+            text-align: center;
         }
 
         .blue { 
-            background-color: #4285F4; 
+            background-color: #4285F4;
+            color: #4285F4; 
             animation-delay: 0s;
         }
         .red { 
-            background-color: #EA4335; 
+            background-color: #EA4335;
+            color: #EA4335; 
             animation-delay: 0.3s;
         }
         .yellow { 
-            background-color: #FBBC05; 
+            background-color: #FBBC05;
+            color: #FBBC05; 
             animation-delay: 0.6s;
         }
         .green { 
-            background-color: #34A853; 
+            background-color: #34A853;
+            color: #34A853; 
             animation-delay: 0.9s;
         }
 
