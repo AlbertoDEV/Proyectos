@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './Online quiz generator/online-quiz-generator/index.html'
+          path: './Online quiz generator/online-quiz-generator/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
