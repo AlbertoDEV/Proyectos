@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-title="user-title">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Generator - User Interface</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 data-i18n="app-title">Quiz Generator</h1>
+            <div class="user-controls">
+                <span id="userDisplay" class="user-display"></span>
+                <button id="loginBtn" class="btn secondary-btn" data-i18n="login-btn" style="display: none;">Login</button>
+                <a href="index.html" id="logoutBtn" class="btn secondary-btn" data-i18n="logout" style="display: none;">Logout</a>
+            </div>
+        </header>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 data-i18n="login-title">Login</h2>
+                <p data-i18n="enter-credentials">Please enter your credentials to continue</p>
+
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="username" data-i18n="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" data-i18n="password">Password:</label>
+                        <input type="password" id="password" name="password" data-i18n-placeholder="admin-password-placeholder" placeholder="For admin access, use 'admin123'">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary-btn" data-i18n="login-btn">Login</button>
+                    </div>
+                </form>
+
+                <div class="login-info">
+                    <p><strong data-i18n="note">Note:</strong> <span data-i18n="demo-purposes">For demonstration purposes:</span></p>
+                    <ul>
+                        <li data-i18n="admin-access">To access as an administrator, use username "admin" and password "admin123"</li>
+                        <li data-i18n="user-access">To access as a regular user, enter any username and leave the password blank or enter any password</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <section id="quizListSection" class="quiz-list-section">
+                <h2 data-i18n="available-quizzes">Available Quizzes</h2>
+                <p data-i18n="select-quiz">Select a quiz to start:</p>
+
+                <div id="availableQuizzes" class="quiz-grid">
+                    <!-- Quiz items will be dynamically added here -->
+                </div>
+            </section>
+
+            <section id="quizContainer" class="quiz-container" style="display: none;">
+                <h2 id="quizTitle">Quiz Title</h2>
+
+                <div class="quiz-progress">
+                    <div id="progressContainer" class="progress-indicators">
+                        <!-- Progress indicators will be dynamically added here -->
+                    </div>
+                    <div id="questionCounter" class="question-counter">Question 1 of 5</div>
+                </div>
+
+                <div id="questionContainer" class="question-container">
+                    <!-- Current question will be dynamically added here -->
+                </div>
+
+                <div class="navigation-buttons">
+                    <button id="prevButton" class="btn secondary-btn" data-i18n="previous">Previous</button>
+                    <button id="nextButton" class="btn primary-btn" data-i18n="next">Next</button>
+                    <button id="submitButton" class="btn primary-btn" style="display: none;" data-i18n="submit-quiz">Submit Quiz</button>
+                </div>
+            </section>
+
+            <section id="resultContainer" class="result-container" style="display: none;">
+                <h2 data-i18n="quiz-results">Quiz Results</h2>
+
+                <div class="score-display">
+                    <p><span data-i18n="your-score">Your score:</span> <span id="scoreDisplay">0 out of 0</span></p>
+                    <p><span data-i18n="percentage">Percentage:</span> <span id="percentageDisplay">0%</span></p>
+                </div>
+
+                <div id="answersContainer" class="answers-container">
+                    <!-- Answer review will be dynamically added here -->
+                </div>
+
+                <div class="result-actions">
+                    <form id="resultForm" class="result-form">
+                        <div class="form-group">
+                            <label for="resultUsername" data-i18n="your-name">Your Name:</label>
+                            <input type="text" id="resultUsername" name="username" required>
+                        </div>
+
+                        <button type="submit" class="btn primary-btn" data-i18n="save-result">Save Result</button>
+                    </form>
+
+                    <button id="tryAnotherButton" class="btn secondary-btn" data-i18n="try-another">Try Another Quiz</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p data-i18n="copyright">&copy; 2023 Quiz Generator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/data-manager.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/user.js"></script>
+</body>
+</html>
