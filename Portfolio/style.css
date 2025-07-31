@@ -689,6 +689,7 @@ nav ul li:nth-child(4) a:hover {
     gap: 40px;
     margin-top: 60px;
     perspective: 1000px;
+    padding: 0 40px;
 }
 
 .project-card {
@@ -891,6 +892,7 @@ nav ul li:nth-child(4) a:hover {
     gap: 50px;
     margin-top: 60px;
     perspective: 1000px;
+    padding: 0 40px;
 }
 
 .contact-info, .contact-form {
