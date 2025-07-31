@@ -228,6 +228,16 @@ nav ul li:nth-child(4) a:hover {
     align-items: center;
 }
 
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    max-width: 100%;
+}
+
 .profile-image-placeholder {
     width: 300px;
     height: 300px;
@@ -685,6 +695,11 @@ footer {
         width: 280px;
         height: 280px;
     }
+
+    .profile-image {
+        width: 180px;
+        height: 180px;
+    }
 }
 
 @media (max-width: 992px) {
@@ -704,6 +719,11 @@ footer {
     .profile-image-placeholder {
         width: 250px;
         height: 250px;
+    }
+
+    .profile-image {
+        width: 160px;
+        height: 160px;
     }
 
     section {
@@ -735,6 +755,12 @@ footer {
 
     .cta-buttons {
         justify-content: center;
+    }
+
+    .profile-image {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto;
     }
 
     header {
@@ -841,6 +867,11 @@ footer {
         height: 200px;
     }
 
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
     .about h2, .skills h2, .projects h2, .contact h2 {
         font-size: 2rem;
     }
@@ -874,6 +905,11 @@ footer {
         width: 180px;
         height: 180px;
         font-size: 4rem;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
     }
 
     .about h2, .skills h2, .projects h2, .contact h2 {
