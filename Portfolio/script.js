@@ -72,44 +72,131 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add animation to skill categories on scroll
-    const skillCategories = document.querySelectorAll('.skill-category');
+    // Add animation classes to elements
+    function setupAnimations() {
+        // About section animations
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            aboutSection.querySelector('h2').classList.add('animate', 'fade-in');
 
-    function checkScroll() {
-        skillCategories.forEach(category => {
-            const categoryPosition = category.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
+            const aboutParagraphs = aboutSection.querySelectorAll('p');
+            aboutParagraphs.forEach((p, index) => {
+                p.classList.add('animate', 'slide-up');
+                p.classList.add(`delay-${index + 1}`);
+            });
+        }
 
-            if (categoryPosition < screenPosition) {
-                category.style.opacity = 1;
-                category.style.transform = 'translateY(0)';
+        // Skills section animations
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            skillsSection.querySelector('h2').classList.add('animate', 'fade-in');
+
+            const skillCategories = skillsSection.querySelectorAll('.skill-category');
+            skillCategories.forEach((category, index) => {
+                category.classList.add('animate', 'scale-in');
+                category.classList.add(`delay-${index + 1}`);
+
+                const skillItems = category.querySelectorAll('li');
+                skillItems.forEach((item, itemIndex) => {
+                    item.classList.add('animate', 'slide-right');
+                    item.classList.add(`delay-${itemIndex + 3}`);
+                });
+            });
+        }
+
+        // Projects section animations
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            projectsSection.querySelector('h2').classList.add('animate', 'fade-in');
+
+            const projectCards = projectsSection.querySelectorAll('.project-card');
+            projectCards.forEach((card, index) => {
+                card.classList.add('animate', 'slide-up');
+                card.classList.add(`delay-${index + 1}`);
+
+                // Animate project card contents
+                if (card.querySelector('h3')) {
+                    card.querySelector('h3').classList.add('animate', 'slide-left', `delay-${index + 2}`);
+                }
+                if (card.querySelector('p')) {
+                    card.querySelector('p').classList.add('animate', 'fade-in', `delay-${index + 3}`);
+                }
+                if (card.querySelector('.project-links')) {
+                    card.querySelector('.project-links').classList.add('animate', 'slide-up', `delay-${index + 4}`);
+                }
+            });
+        }
+
+        // Contact section animations
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.querySelector('h2').classList.add('animate', 'fade-in');
+
+            const contactInfo = contactSection.querySelector('.contact-info');
+            if (contactInfo) {
+                contactInfo.classList.add('animate', 'slide-left', 'delay-1');
+
+                const contactInfoItems = contactInfo.querySelectorAll('li');
+                contactInfoItems.forEach((item, index) => {
+                    item.classList.add('animate', 'slide-left', `delay-${index + 3}`);
+                });
             }
+
+            const contactForm = contactSection.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.classList.add('animate', 'slide-right', 'delay-2');
+
+                const formGroups = contactForm.querySelectorAll('.form-group');
+                formGroups.forEach((group, index) => {
+                    group.classList.add('animate', 'slide-up', `delay-${index + 3}`);
+                });
+
+                const submitBtn = contactForm.querySelector('.submit-btn');
+                if (submitBtn) {
+                    submitBtn.classList.add('animate', 'scale-in', 'delay-5');
+                }
+            }
+        }
+    }
+
+    // Initialize IntersectionObserver to trigger animations when elements come into view
+    function initIntersectionObserver() {
+        const animatedElements = document.querySelectorAll('.animate');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        animatedElements.forEach(element => {
+            element.style.animationPlayState = 'paused';
+            observer.observe(element);
         });
     }
 
-    // Set initial state for skill categories
-    skillCategories.forEach(category => {
-        category.style.opacity = 0;
-        category.style.transform = 'translateY(20px)';
-        category.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
+    // Setup animations and initialize observer
+    setupAnimations();
+    initIntersectionObserver();
 
-    // Check scroll position on page load and scroll
-    window.addEventListener('load', checkScroll);
-    window.addEventListener('scroll', checkScroll);
-
-    // Add hover effect to project cards
+    // Add hover effect to project cards (for additional interactivity)
     const projectCards = document.querySelectorAll('.project-card');
 
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-            this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
+            this.style.transform = 'translateY(-15px) scale(1.03)';
+            this.style.boxShadow = '0 20px 40px rgba(52, 168, 83, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.8)';
         });
 
         card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+            this.style.transform = 'translateZ(0) scale(1)';
+            this.style.boxShadow = '0 15px 35px rgba(52, 168, 83, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.5)';
         });
     });
 });
